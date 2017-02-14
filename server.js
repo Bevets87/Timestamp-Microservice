@@ -1,8 +1,10 @@
+// requires
 var express = require('express');
 var app = express();
 
-app.get('/', function(req, res){
-  res.send('Hello World!');
-})
+// middleware
+app.use('/', express.static(__dirname + '/client')); // redirect root
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); //
 
+// port
 app.listen(3000);
