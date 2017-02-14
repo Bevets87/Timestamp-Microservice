@@ -5,7 +5,7 @@ var app = express();
 
 
 // middleware
-app.use('/', express.static(__dirname + '/client')); // redirect root
+app.use('/', express.static(__dirname + '/client')); 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 var getNatTimeStamp = function(date){
@@ -53,4 +53,5 @@ var date = new Date(query * 1000);
 });
 
 // port
-app.listen(3000);
+var port = process.env.port || 3000;
+app.listen(port);
